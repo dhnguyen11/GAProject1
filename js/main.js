@@ -58,7 +58,7 @@ function init() {
     playerHand = [];
     computerHand = [];
     usedCards = [];
-    winMsg = `Welcome to Blackjack! Press the 'Play Again' button to begin!`
+    winMsg = `Welcome to Blackjack! Press the 'Play Again' button to begin a game!`
     render();
 }
 
@@ -69,7 +69,7 @@ function render() {
     console.log('render function is online');
     playerScoreEl.innerText = `Player Score: ${playerScore}`;
     computerScoreEl.innerText = `Dealer Score: ${computerScore}`;
-    winMessageEl.innerHTML = `<hi>${winMsg}</h1>`;
+    winMessageEl.innerHTML = `<h2>${winMsg}</h1>`;
     while (playerHandEl.firstChild) {
         playerHandEl.removeChild(playerHandEl.firstChild)
     }

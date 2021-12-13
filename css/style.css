@@ -56,7 +56,7 @@ body {
 #win-msg {
     grid-area: win-msg;
     place-self: center;
-    font-size: 24px;
+    text-align: center;
 }
 
 #player-score {
