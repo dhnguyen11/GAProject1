@@ -37,6 +37,7 @@ body {
     grid-area: deck;
     justify-self: center;
     align-self: center;
+    margin: 5px;
 }
 
 #play-again {
