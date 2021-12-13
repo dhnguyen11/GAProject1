@@ -39,6 +39,9 @@ let computerHand;
 // Defining the used suits and values
 let usedCards;
 
+// Defining the winning/welcome message
+let winMsg;
+
 // Caching variables
 // These caches will be used to run the render function, as well as other functions
 const playerHandEl = document.getElementById('player-hand');
@@ -55,6 +58,7 @@ function init() {
     playerHand = [];
     computerHand = [];
     usedCards = [];
+    winMsg = `Welcome to Blackjack! Press the 'Play Again' button to begin!`
     render();
 }
 
@@ -65,6 +69,7 @@ function render() {
     console.log('render function is online');
     playerScoreEl.innerText = `Player Score: ${playerScore}`;
     computerScoreEl.innerText = `Dealer Score: ${computerScore}`;
+    winMessageEl.innerHTML = `<hi>${winMsg}</h1>`;
     while (playerHandEl.firstChild) {
         playerHandEl.removeChild(playerHandEl.firstChild)
     }
