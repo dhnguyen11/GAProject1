@@ -15,4 +15,16 @@ body {
     margin: 10vh 10vw;
     grid-template-columns: 1fr 3fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
+    grid-template-areas:
+        "c-score c-hand deck"
+        "play-again win-msg none"
+        "p-score p-hand play-btns";
+}
+
+#computer-score {
+    grid-area: c-score;
+}
+
+#computer-hand {
+    grid-area: c-hand;
 }
