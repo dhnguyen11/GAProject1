@@ -47,5 +47,10 @@ const winMessageEl = document.getElementById('win-msg');
 // Init function
 // Will be run when the page is loaded
 function init() {
-    console.log('init is running');
+    playerScore = 0;
+    computerScore = 0;
+    playerHand = [];
+    computerHand = [];
 }
+
+init();
