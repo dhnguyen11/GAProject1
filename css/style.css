@@ -5,7 +5,7 @@ body {
 #body-container {
     color: white;
     border-style: solid;
-    border: 15px;
+    border-width: 3px;
     border-color: black;
     border-radius: 5px;
     background-color: #04570f;
@@ -23,8 +23,49 @@ body {
 
 #computer-score {
     grid-area: c-score;
+    justify-self: center;
+    align-self: center;
 }
 
 #computer-hand {
     grid-area: c-hand;
+    justify-self: center;
+    align-self: center;
+}
+
+#deck {
+    grid-area: deck;
+    justify-self: center;
+    align-self: center;
+}
+
+#play-again {
+    grid-area: play-again;
+    justify-self: center;
+    align-self: center;
+}
+
+#win-msg {
+    grid-area: win-msg;
+    justify-self: center;
+    align-self: center;
+}
+
+#player-score {
+    grid-area: p-score;
+    justify-self: center;
+    align-self: center;
+}
+
+#player-hand {
+    grid-area: p-hand;
+    justify-self: center;
+    align-self: center;
+}
+
+#gameplay-buttons{
+    grid-area: play-btns;
+    justify-self: center;
+    align-self: center;
+    display: flex;
 }
