@@ -19,42 +19,56 @@ body {
         "c-score c-hand deck"
         "play-again win-msg none"
         "p-score p-hand play-btns";
-    place-items: center;
 }
 
 #computer-score {
     grid-area: c-score;
+    place-self: center;
 }
 
 #computer-hand {
     grid-area: c-hand;
+    display: grid;
+    align-self: center;
+    grid-template-rows: 1fr;
+    grid-auto-flow: column;
+    justify-content: left;
+    position: relative;
 }
 
 #deck {
     grid-area: deck;
+    place-self: center;
     margin: 5px;
 }
 
 #play-again {
     grid-area: play-again;
+    place-self: center;
 }
 
 #win-msg {
     grid-area: win-msg;
+    place-self: center;
 }
 
 #player-score {
     grid-area: p-score;
+    place-self: center;
 }
 
 #player-hand {
     grid-area: p-hand;
+    align-self: center;
     display: grid;
     grid-template-rows: 1fr;
     grid-auto-flow: column;
+    justify-content: left;
+    position: relative;
 }
 
 #gameplay-buttons{
     grid-area: play-btns;
+    place-self: center;
     display: flex;
 }
