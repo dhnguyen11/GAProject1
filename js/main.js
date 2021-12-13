@@ -41,6 +41,11 @@ let computerHand;
 const playerHandEl = document.getElementById('player-hand');
 const computerHandEl = document.getElementById('computer-hand');
 const playerScoreEl = document.getElementById('player-score');
-const playerScoreEl = document.getElementById('computer-score');
+const computerScoreEl = document.getElementById('computer-score');
 const winMessageEl = document.getElementById('win-msg');
 
+// Init function
+// Will be run when the page is loaded
+function init() {
+    console.log('init is running');
+}
