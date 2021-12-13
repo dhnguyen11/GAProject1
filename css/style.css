@@ -28,9 +28,11 @@ body {
 
 #computer-hand {
     grid-area: c-hand;
-    display: grid;
     align-self: center;
+    display: grid;
     grid-template-rows: 1fr;
+    grid-template-columns: 25px;
+    grid-auto-columns: 25px;
     grid-auto-flow: column;
     justify-content: left;
     position: relative;
@@ -62,6 +64,8 @@ body {
     align-self: center;
     display: grid;
     grid-template-rows: 1fr;
+    grid-template-columns: 25px;
+    grid-auto-columns: 25px;
     grid-auto-flow: column;
     justify-content: left;
     position: relative;
