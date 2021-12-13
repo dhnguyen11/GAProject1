@@ -70,3 +70,8 @@ body {
     align-self: center;
     display: flex;
 }
+
+li {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
