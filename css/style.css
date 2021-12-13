@@ -38,6 +38,10 @@ body {
     position: relative;
 }
 
+#computer-hand div {
+    margin: 15px;
+}
+
 #deck {
     grid-area: deck;
     place-self: center;
@@ -69,6 +73,10 @@ body {
     grid-auto-flow: column;
     justify-content: left;
     position: relative;
+}
+
+#player-hand div {
+    margin: 15px;
 }
 
 #gameplay-buttons{
