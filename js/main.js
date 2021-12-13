@@ -51,6 +51,9 @@ function init() {
     computerScore = 0;
     playerHand = [];
     computerHand = [];
+    render();
 }
-
+function render() {
+    console.log('render function is online');
+}
 init();
