@@ -27,7 +27,7 @@ const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
 //     }
 // }
 const playerHandEl = document.getElementById('player-hand');
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 5; i++) {
     const newEl = document.createElement('div');
     newEl.classList.add(`spades`, `card`, `large`, faces[i]);
     playerHandEl.append(newEl);
