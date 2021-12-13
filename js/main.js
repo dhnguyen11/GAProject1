@@ -26,10 +26,21 @@ class Card {
     }
 }
 
+// Defining score variables
+// These variables will be displayed on screen for the player to track.
+let playerScore;
+let computerScore;
 
+// Defining hands
+// These hands will hold card objects.
+let playerHand;
+let computerHand;
+
+// Caching variables
+// These caches will be used to run the render function, as well as other functions
 const playerHandEl = document.getElementById('player-hand');
-for (let i = 0; i < 4; i++) {
-    const newEl = document.createElement('div');
-    newEl.classList.add(`spades`, `card`, `large`, faces[i]);
-    playerHandEl.append(newEl);
-}
+const computerHandEl = document.getElementById('computer-hand');
+const playerScoreEl = document.getElementById('player-score');
+const playerScoreEl = document.getElementById('computer-score');
+const winMessageEl = document.getElementById('win-msg');
+
