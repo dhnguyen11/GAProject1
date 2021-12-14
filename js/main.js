@@ -67,7 +67,6 @@ function init() {
 // Updates the DOM with all new information.
 // This will place new objects onto the GUI.
 function render() {
-    console.log('render function is online');
     playerScoreEl.innerText = `Player Score: ${playerScore}`;
     computerScoreEl.innerText = `Dealer Score: ${computerScore}`;
     winMessageEl.innerHTML = `<h2>${winMsg}</h1>`;
@@ -95,30 +94,50 @@ function render() {
 }
 
 // Score calculation function
-// Takes a player's hand as input and returns the value of all of the faceup cards.
+// Assigns the values of each hand, then runs the render function.
 // Contains logic to handle whether an ace is 1 or 11
-function calculateScore(hand) {
-    let total = 0;
-    let hasAce = false;
-    hand.forEach( (card) => {
+function calculateScores() {
+    let playerTotal = 0;
+    let playerHasAce = false;
+    let computerTotal = 0;
+    let computerHasAce = false;
+    playerHand.forEach( (card) => {
         if (!card.faceup) {}
-        else if (card.face === 'A' && !hasAce) {
-            hasAce = true;
+        else if (card.face === 'A' && !playerHasAce) {
+            playerHasAce = true;
         }
         else {
-            total += card.value;
+            playerTotal += card.value;
         }
     });
-    if (hasAce) {
-        if (total <= 10){
-            total += 11;
+    if (playerHasAce) {
+        if (playerTotal <= 10){
+            playerTotal += 11;
         }
         else {
-            total += 1;
+            playerTotal += 1;
         }
     }
-    console.log(total);
-    return total;
+    computerHand.forEach( (card) => {
+        if (!card.faceup) {}
+        else if (card.face === 'A' && !computerHasAce) {
+            computerHasAce = true;
+        }
+        else {
+            computerTotal += card.value;
+        }
+    });
+    if (computerHasAce) {
+        if (computerTotal <= 10){
+            computerTotal += 11;
+        }
+        else {
+            computerTotal += 1;
+        }
+    }
+    playerScore = playerTotal;
+    computerScore = computerTotal;
+    render();
 }
 
 // Initializing the game when the webpage loads
