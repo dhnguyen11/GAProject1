@@ -176,6 +176,9 @@ function renderTestOne() {
     while (computerHand.length > 0) {
         computerHand.pop();
     }
+    while (usedCards.length > 0) {
+        usedCards.pop();
+    }
     drawCard(playerHand, true);
     drawCard(playerHand, true);
     drawCard(playerHand, true);
