@@ -78,7 +78,12 @@ function render() {
     }
     playerHand.forEach( (card) => {
         const newEl = document.createElement('div');
-        newEl.classList.add('card', 'large', card.face, card.suit);
+        if (card.faceup === false) {
+            newEl.classList.add('back-red', 'card', 'large');
+        }
+        else {
+            newEl.classList.add('card', 'large', card.face, card.suit);
+        }
         playerHandEl.append(newEl);
     });
     computerHand.forEach( (card) => {
@@ -141,6 +146,7 @@ function calculateScores() {
 
 // Function to add a card to the hand
 // Takes in the hand to add the card to, and which way it is facing.
+// True for faceup, false for facedown.
 // Will not add duplicate cards to any hand.
 function drawCard(hand, facing) {
     let randomSuit;
@@ -170,5 +176,12 @@ function renderTestOne() {
     while (computerHand.length > 0) {
         computerHand.pop();
     }
+    drawCard(playerHand, true);
+    drawCard(playerHand, true);
+    drawCard(playerHand, true);
+    drawCard(computerHand, false);
+    drawCard(computerHand, true);
+    drawCard(computerHand, true);
+    calculateScores();
     render();
 }
