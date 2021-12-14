@@ -166,6 +166,36 @@ function drawCard(hand, facing) {
     hand.push(new Card(faces[randomFace], suits[randomSuit], values[randomFace], facing));
 }
 
+function determineWinner() {
+    if (playerScore > 21) {
+        winMsg = `You have busted.  The dealer wins!`;
+    }
+    else if (computerScore > 21) {
+        winMsg = `The dealer has busted.  You win!`;
+    }
+    else if (playerScore === 21)
+    {
+        if (computerScore === 21) {
+            winMsg = `Both players have 21.  Tie!`;
+        }
+        else {
+            winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  You win!`;
+        }
+    }
+    else if (playerScore === 21) {
+        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins!`;
+    }
+    else if (playerScore === computerScore) {
+        winMsg = `Both players have ${playerScore}.  Tie!`;
+    }
+    else if (playerScore > computerScore) {
+        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  You win!`;
+    }
+    else {
+        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins!`;
+    }
+}
+
 // Initializing the game when the webpage loads
 init();
 
