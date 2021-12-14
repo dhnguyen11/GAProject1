@@ -1,7 +1,8 @@
 // This array holds the values of the cards.
 // Note that Ace is an array of 2 values. 
-// Aces are worth either 1 or 11, so the value must be selected at runtime.
-const values = [[1, 11], 2, 3, 4, 5, 6, 7, 8, 9, 10 ,10 ,10 ,10];
+// Aces are worth either 1 in this array.
+// Whether they are worth 11 will be calculated at runtime.
+const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ,10 ,10 ,10];
 
 // This array holds the possible face values of the cards.
 // The array is set up to be able to identify the cards as classes.
@@ -92,6 +93,15 @@ function render() {
         computerHandEl.append(newEl);
     });
 }
+
+// Score calculation function
+// Takes a player's hand as input and returns the value of all of the faceup cards.
+// Contains logic to handle whether an ace is 1 or 11
+function calculateScore(hand) {
+
+}
+
+// Initializing the game when the webpage loads
 init();
 
 function renderTestOne() {
