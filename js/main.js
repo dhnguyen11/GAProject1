@@ -137,7 +137,27 @@ function calculateScores() {
     }
     playerScore = playerTotal;
     computerScore = computerTotal;
-    render();
+}
+
+// Function to add a card to the hand
+// Takes in the hand to add the card to, and which way it is facing.
+// Will not add duplicate cards to any hand.
+function drawCard(hand, facing) {
+    let randomSuit;
+    let randomFace;
+    let duplicate;
+    do {
+        duplicate = false;
+        randomSuit = Math.floor(Math.random() * 3);
+        randomFace = Math.floor(Math.random() * 13);
+        usedCards.forEach ( (item) => {
+            if (item[0] === randomSuit && item[1] === randomFace) {
+                duplicate = true;
+            }
+        });
+    } while (duplicate === true);
+    usedCards.push([randomSuit, randomFace]);
+    hand.push(new Card(faces[randomFace], suits[randomSuit], values[randomFace], facing));
 }
 
 // Initializing the game when the webpage loads
@@ -150,27 +170,5 @@ function renderTestOne() {
     while (computerHand.length > 0) {
         computerHand.pop();
     }
-    playerHand.push(new Card(faces[9], suits[0], values[9], true));
-    playerHand.push(new Card(faces[9], suits[2], values[9], true));
-    playerHand.push(new Card(faces[0], suits[3], values[0], true));
-    computerHand.push(new Card(faces[0], suits[0], values[0], true));
-    computerHand.push(new Card(faces[1], suits[2], values[1], true));
-    computerHand.push(new Card(faces[2], suits[3], values[2], true));
-    render();
-}
-
-function renderTestTwo() {
-    while (playerHand.length > 0) {
-        playerHand.pop();
-    }
-    while (computerHand.length > 0) {
-        computerHand.pop();
-    }
-    playerHand.push(new Card(faces[2], suits[1], values[2], true));
-    playerHand.push(new Card(faces[10], suits[2], values[10], true));
-    playerHand.push(new Card(faces[5], suits[0], values[5], true));
-    computerHand.push(new Card(faces[3], suits[0], values[3], true));
-    computerHand.push(new Card(faces[11], suits[2], values[11], false));
-    computerHand.push(new Card(faces[7], suits[3], values[7], true));
     render();
 }
