@@ -98,7 +98,27 @@ function render() {
 // Takes a player's hand as input and returns the value of all of the faceup cards.
 // Contains logic to handle whether an ace is 1 or 11
 function calculateScore(hand) {
-
+    let total = 0;
+    let hasAce = false;
+    hand.forEach( (card) => {
+        if (!card.faceup) {}
+        else if (card.face === 'A' && !hasAce) {
+            hasAce = true;
+        }
+        else {
+            total += card.value;
+        }
+    });
+    if (hasAce) {
+        if (total <= 10){
+            total += 11;
+        }
+        else {
+            total += 1;
+        }
+    }
+    console.log(total);
+    return total;
 }
 
 // Initializing the game when the webpage loads
@@ -111,9 +131,9 @@ function renderTestOne() {
     while (computerHand.length > 0) {
         computerHand.pop();
     }
-    playerHand.push(new Card(faces[0], suits[0], values[0], true));
-    playerHand.push(new Card(faces[1], suits[2], values[1], true));
-    playerHand.push(new Card(faces[2], suits[3], values[2], true));
+    playerHand.push(new Card(faces[9], suits[0], values[9], true));
+    playerHand.push(new Card(faces[9], suits[2], values[9], true));
+    playerHand.push(new Card(faces[0], suits[3], values[0], true));
     computerHand.push(new Card(faces[0], suits[0], values[0], true));
     computerHand.push(new Card(faces[1], suits[2], values[1], true));
     computerHand.push(new Card(faces[2], suits[3], values[2], true));
