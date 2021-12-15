@@ -82,7 +82,7 @@ function init() {
     playerScore = 0;
     computerScore = 0;
     currentBet = 0;
-    currentFunds = 0;
+    currentFunds = 500;
     playerHand = [];
     computerHand = [];
     usedCards = [];
@@ -90,8 +90,8 @@ function init() {
     betting = false;
     playerBlackjack = false;
     computerBlackjack = false;
-    playButtonText = 'Play';
-    winMsg = `Welcome to Blackjack! Press the 'Play' button to start, then use the buttons below to place a bet and deal cards!`
+    playButtonText = 'Start';
+    winMsg = `Welcome to Blackjack! Press the 'Start' button to begin, then use the buttons below to place a bet and deal cards!`
     render();
 }
 
@@ -103,7 +103,7 @@ function render() {
     playerScoreEl.innerText = `Player Score: ${playerScore}`;
     computerScoreEl.innerText = `Dealer Score: ${computerScore}`;
     winMessageEl.innerHTML = `<h2>${winMsg}</h1>`;
-    betInfoEl.innerText = `Current bet: ${currentBet}    Funds: ${currentFunds}`;
+    betInfoEl.innerText = `Current bet: $${currentBet}    Funds: $${currentFunds}`;
     while (playerHandEl.firstChild) {
         playerHandEl.removeChild(playerHandEl.firstChild)
     }
@@ -243,7 +243,7 @@ function determineWinner() {
 
 // Function to set up betting with the play button
 function setupBets() {
-    playButtonText = 'Play Again';
+    playButtonText = 'Reset';
     winMsg = '';
     currentBet = 0;
     currentFunds = 500;
