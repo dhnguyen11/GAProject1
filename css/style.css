@@ -36,6 +36,7 @@ body {
     grid-auto-flow: column;
     justify-content: left;
     position: relative;
+    margin-left: 20%;
 }
 
 #computer-hand div {
@@ -90,6 +91,7 @@ body {
     grid-auto-flow: column;
     justify-content: left;
     position: relative;
+    margin-left: 20%;
 }
 
 #player-hand div {
