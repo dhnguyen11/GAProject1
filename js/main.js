@@ -190,7 +190,16 @@ function drawCard(hand, facing) {
 // Currently will be run at any time when the winner must be determined
 // May later be separated into different 'determine winner' functions
 function determineWinner() {
-    if (playerScore > 21) {
+    if (computerBlackjack && playerBlackjack) {
+        winMsg = `Both players have blackjack.  Tie!`
+    }
+    else if (computerBlackjack) {
+        winMsg = `The dealer has blackjack.  The dealer wins!`
+    }
+    else if (playerBlackjack) {
+        winMsg = `You have blackjack.  You win!`
+    }
+    else if (playerScore > 21) {
         winMsg = `You have busted.  The dealer wins!`;
     }
     else if (computerScore > 21) {
@@ -217,6 +226,8 @@ function beginGame() {
     computerHand = [];
     usedCards = [];
     gameStarted = true;
+    playerBlackjack = false;
+    computerBlackjack = false;
     drawCard(playerHand, true);
     drawCard(playerHand, true);
     drawCard(computerHand, false);
