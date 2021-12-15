@@ -231,6 +231,24 @@ function hitCard() {
     }
 }
 
+// Function for Stand button
+// Computes the computer's hand
+function playComputer() {
+    if (gameStarted) {
+        computerHand.forEach( (card) => {
+            card.turnFaceup();
+        });
+        calculateScores();
+        while (computerScore < 17) {
+            drawCard(computerHand, true);
+            calculateScores();
+            render();
+        }
+        determineWinner();
+        render();
+    }
+}
+
 // Initializing the game when the webpage loads
 init();
 
@@ -239,4 +257,4 @@ playButtonEl.addEventListener( 'click', beginGame );
 
 document.getElementById('hit-btn').addEventListener('click', hitCard);
 
-document.getElementById('stand-btn').addEventListener('click', pressStand);
+document.getElementById('stand-btn').addEventListener('click', playComputer);
