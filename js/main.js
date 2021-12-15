@@ -59,7 +59,7 @@ function init() {
     playerHand = [];
     computerHand = [];
     usedCards = [];
-    winMsg = `Welcome to Blackjack! Press the 'Play Again' button to begin a game!`
+    winMsg = `Welcome to Blackjack! Press the 'Play' button to begin a game!`
     render();
 }
 
@@ -166,24 +166,15 @@ function drawCard(hand, facing) {
     hand.push(new Card(faces[randomFace], suits[randomSuit], values[randomFace], facing));
 }
 
+// Determine Winner function
+// Currently will be run at any time when the winner must be determined
+// May later be separated into different 'determine winner' functions
 function determineWinner() {
     if (playerScore > 21) {
         winMsg = `You have busted.  The dealer wins!`;
     }
     else if (computerScore > 21) {
         winMsg = `The dealer has busted.  You win!`;
-    }
-    else if (playerScore === 21)
-    {
-        if (computerScore === 21) {
-            winMsg = `Both players have 21.  Tie!`;
-        }
-        else {
-            winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  You win!`;
-        }
-    }
-    else if (playerScore === 21) {
-        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins!`;
     }
     else if (playerScore === computerScore) {
         winMsg = `Both players have ${playerScore}.  Tie!`;
