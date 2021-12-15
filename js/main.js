@@ -202,6 +202,7 @@ function beginGame() {
     console.log('beginning game');
     console.log('multi-use test');
     playButtonText = 'Play Again';
+    winMsg = '';
     render();
 }
 
@@ -209,6 +210,6 @@ function beginGame() {
 // Initializing the game when the webpage loads
 init();
 
-// // Event listeners for buttons
-// playButtonEl.addEventListener( 'click', beginGame() );
+// Event listeners for buttons
+playButtonEl.addEventListener( 'click', beginGame );
 
