@@ -207,29 +207,38 @@ function drawCard(hand, facing) {
 function determineWinner() {
     if (computerBlackjack && playerBlackjack) {
         winMsg = `Both players have blackjack.  Tie!`
+        tiePayout();
     }
     else if (computerBlackjack) {
         winMsg = `The dealer has blackjack.  The dealer wins!`
+        lossPayout();
     }
     else if (playerBlackjack) {
         winMsg = `You have blackjack.  You win!`
+        blackjackPayout();
     }
     else if (playerScore > 21) {
         winMsg = `You have busted.  The dealer wins!`;
+        lossPayout();
     }
     else if (computerScore > 21) {
         winMsg = `The dealer has busted.  You win!`;
+        winPayout();
     }
     else if (playerScore === computerScore) {
         winMsg = `Both players have ${playerScore}.  Tie!`;
+        tiePayout();
     }
     else if (playerScore > computerScore) {
         winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  You win!`;
+        winPayout();
     }
     else {
         winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins!`;
+        lossPayout();
     }
     gameStarted = false;
+    betting = true;
 }
 
 // Function to set up betting with the play button
@@ -238,6 +247,8 @@ function setupBets() {
     winMsg = '';
     currentBet = 0;
     currentFunds = 500;
+    playerHand = [];
+    computerHand = [];
     betting = true;
     render();
 }
@@ -309,6 +320,27 @@ function determineBlackjack() {
     else {
         computerBlackjack = false;
     }
+}
+
+// Functions for paying out bets
+function tiePayout() {
+    currentFunds += currentBet;
+    currentBet = 0;
+}
+
+function blackjackPayout() {
+    let bjBet = currentBet * 2.5;
+    currentFunds += bjBet;
+    currentBet = 0;
+}
+
+function lossPayout() {
+    currentBet = 0;
+}
+
+function winPayout() {
+    currentFunds += 2 * currentBet;
+    currentBet = 0;
 }
 
 // Initializing the game when the webpage loads
