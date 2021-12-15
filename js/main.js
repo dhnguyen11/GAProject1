@@ -13,6 +13,9 @@ const faces = ['A', 'r02', 'r03', 'r04', 'r05', 'r06', 'r07', 'r08', 'r09', 'r10
 // This array holds the possible suits that a card can be.
 const suits = ['spades', 'hearts', 'diamonds', 'clubs'];
 
+// Static variable for time delay
+const delayInMilliseconds = 250;
+
 // Constructor for the cards.
 // Allows all of the data for an individual card to be stored in one place.
 class Card {
@@ -281,8 +284,14 @@ function determineBlackjack() {
 init();
 
 // Event listeners for buttons
-playButtonEl.addEventListener( 'click', beginGame );
+playButtonEl.addEventListener( 'click', function() {
+    setTimeout(beginGame, [delayInMilliseconds]);
+});
 
-document.getElementById('hit-btn').addEventListener('click', hitCard);
+document.getElementById('hit-btn').addEventListener('click', function() {
+    setTimeout(hitCard, [delayInMilliseconds]);
+});
 
-document.getElementById('stand-btn').addEventListener('click', playComputer);
+document.getElementById('stand-btn').addEventListener('click', function() {
+    setTimeout(playComputer, [delayInMilliseconds]);
+});
