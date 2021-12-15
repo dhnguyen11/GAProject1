@@ -43,6 +43,9 @@ let usedCards;
 // Defining the winning/welcome message
 let winMsg;
 
+// Defining the text for the play button
+let playButtonText;
+
 // Caching variables
 // These caches will be used to run the render function, as well as other functions
 const playerHandEl = document.getElementById('player-hand');
@@ -50,6 +53,10 @@ const computerHandEl = document.getElementById('computer-hand');
 const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const winMessageEl = document.getElementById('win-msg');
+const playButtonEl = document.getElementById('play-again');
+
+
+
 
 // Init function
 // Will be run when the page is loaded
@@ -59,6 +66,7 @@ function init() {
     playerHand = [];
     computerHand = [];
     usedCards = [];
+    playButtonText = 'Play';
     winMsg = `Welcome to Blackjack! Press the 'Play' button to begin a game!`
     render();
 }
@@ -67,6 +75,7 @@ function init() {
 // Updates the DOM with all new information.
 // This will place new objects onto the GUI.
 function render() {
+    playButtonEl.innerText = playButtonText;
     playerScoreEl.innerText = `Player Score: ${playerScore}`;
     computerScoreEl.innerText = `Dealer Score: ${computerScore}`;
     winMessageEl.innerHTML = `<h2>${winMsg}</h1>`;
@@ -187,25 +196,19 @@ function determineWinner() {
     }
 }
 
+// Begin Game function
+// Sets up player hands and game basics
+function beginGame() {
+    console.log('beginning game');
+    console.log('multi-use test');
+    playButtonText = 'Play Again';
+    render();
+}
+
+
 // Initializing the game when the webpage loads
 init();
 
-function renderTestOne() {
-    while (playerHand.length > 0) {
-        playerHand.pop();
-    }
-    while (computerHand.length > 0) {
-        computerHand.pop();
-    }
-    while (usedCards.length > 0) {
-        usedCards.pop();
-    }
-    drawCard(playerHand, true);
-    drawCard(playerHand, true);
-    drawCard(playerHand, true);
-    drawCard(computerHand, false);
-    drawCard(computerHand, true);
-    drawCard(computerHand, true);
-    calculateScores();
-    render();
-}
+// // Event listeners for buttons
+// playButtonEl.addEventListener( 'click', beginGame() );
+
