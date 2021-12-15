@@ -68,7 +68,7 @@ body {
 }
 #bet-info {
     grid-area: bet-buttons;
-    margin-bottom: 5%;
+    margin-bottom: 30px;
     justify-self: center;
     align-self: end;
 }

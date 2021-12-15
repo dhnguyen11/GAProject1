@@ -70,6 +70,9 @@ const winMessageEl = document.getElementById('win-msg');
 const playButtonEl = document.getElementById('play-again');
 const betButtonEl = document.getElementById('place-bet');
 const betInfoEl = document.getElementById('bet-info');
+const tenBtnEl = document.getElementById('10');
+const twentyfiveBtnEl = document.getElementById('25');
+const fiftyBtnEl = document.getElementById('50');
 
 
 
