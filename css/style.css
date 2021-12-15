@@ -68,7 +68,9 @@ body {
 }
 #bet-info {
     grid-area: bet-buttons;
+    margin-bottom: 5%;
     justify-self: center;
+    align-self: end;
 }
 #bet-buttons {
     grid-area: bet-buttons;
@@ -102,4 +104,9 @@ body {
     grid-area: play-btns;
     place-self: center;
     display: flex;
+    flex-direction: column;
+}
+
+#gameplay-buttons button {
+    margin: 5px;
 }
