@@ -279,8 +279,14 @@ function determineBlackjack() {
     if (playerHand.length === 2 && playerScore === 21) {
         playerBlackjack = true;
     }
+    else {
+        playerBlackjack = false;
+    }
     if (computerHand.length === 2 && computerScore === 21) {
         computerBlackjack = true;
+    }
+    else {
+        computerBlackjack = false;
     }
 }
 
