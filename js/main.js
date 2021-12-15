@@ -49,8 +49,9 @@ let winMsg;
 // Defining the text for the play button
 let playButtonText;
 
-// Variable to determine if game is started
+// Booleans to determine if game is started
 let gameStarted;
+let betting;
 
 // Variable to determine if a player has Blackjack
 let playerBlackjack;
@@ -73,8 +74,7 @@ const betInfoEl = document.getElementById('bet-info');
 const tenBtnEl = document.getElementById('10');
 const twentyfiveBtnEl = document.getElementById('25');
 const fiftyBtnEl = document.getElementById('50');
-
-
+const clearBtnEl = document.getElementById('clear-bet');
 
 // Init function
 // Will be run when the page is loaded
@@ -87,6 +87,7 @@ function init() {
     computerHand = [];
     usedCards = [];
     gameStarted = false;
+    betting = false;
     playerBlackjack = false;
     computerBlackjack = false;
     playButtonText = 'Play';
@@ -237,6 +238,7 @@ function setupBets() {
     winMsg = '';
     currentBet = 0;
     currentFunds = 500;
+    betting = true;
     render();
 }
 
@@ -247,6 +249,7 @@ function beginGame() {
     computerHand = [];
     usedCards = [];
     gameStarted = true;
+    betting = false;
     playerBlackjack = false;
     computerBlackjack = false;
     drawCard(playerHand, true);
@@ -314,7 +317,8 @@ init();
 // Event listeners for buttons
 playButtonEl.addEventListener('click',setupBets);
 betButtonEl.addEventListener('click', function() {
-    if (currentBet > 0) {
+    if (!betting) {}
+    else if (currentBet > 0) {
         winMsg = '';
         beginGame();
     }
@@ -323,7 +327,52 @@ betButtonEl.addEventListener('click', function() {
         render();
     }
 });
-
+tenBtnEl.addEventListener('click', function() {
+    if (!betting) {}
+    else if (currentFunds < 10) {
+        winMsg = `Not enough funds for that bet!`
+        render();
+    }
+    else {
+        winMsg = '';
+        currentFunds -= 10;
+        currentBet += 10;
+        render();
+    }
+});
+twentyfiveBtnEl.addEventListener('click', function() {
+    if (!betting) {}
+    else if (currentFunds < 25) {
+        winMsg = `Not enough funds for that bet!`
+        render();
+    }
+    else {
+        winMsg = '';
+        currentFunds -= 25;
+        currentBet += 25;
+        render();
+    }
+});
+fiftyBtnEl.addEventListener('click', function() {
+    if (!betting) {}
+    else if (currentFunds < 50) {
+        winMsg = `Not enough funds for that bet!`
+        render();
+    }
+    else {
+        winMsg = '';
+        currentFunds -= 50;
+        currentBet += 50;
+        render();
+    }
+});
+clearBtnEl.addEventListener('click', function() {
+    if(betting) {
+        winMsg = '';
+        currentFunds += currentBet;
+        currentBet = 0;
+        render();
+    }
+})
 document.getElementById('hit-btn').addEventListener('click', hitCard);
-
 document.getElementById('stand-btn').addEventListener('click', playComputer);
