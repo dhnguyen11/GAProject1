@@ -56,6 +56,10 @@ let gameStarted;
 let playerBlackjack;
 let computerBlackjack;
 
+// Defining values for bets
+let currentFunds;
+let currentBet;
+
 // Caching variables
 // These caches will be used to run the render function, as well as other functions
 const playerHandEl = document.getElementById('player-hand');
@@ -64,7 +68,8 @@ const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const winMessageEl = document.getElementById('win-msg');
 const playButtonEl = document.getElementById('play-again');
-
+const betButtonEl = document.getElementById('place-bet');
+const betInfoEl = document.getElementById('bet-info');
 
 
 
@@ -73,6 +78,8 @@ const playButtonEl = document.getElementById('play-again');
 function init() {
     playerScore = 0;
     computerScore = 0;
+    currentBet = 0;
+    currentFunds = 0;
     playerHand = [];
     computerHand = [];
     usedCards = [];
@@ -80,7 +87,7 @@ function init() {
     playerBlackjack = false;
     computerBlackjack = false;
     playButtonText = 'Play';
-    winMsg = `Welcome to Blackjack! Press the 'Play' button to begin a game!`
+    winMsg = `Welcome to Blackjack! Press the 'Play' button to start, then use the buttons below to place a bet and deal cards!`
     render();
 }
 
@@ -92,6 +99,7 @@ function render() {
     playerScoreEl.innerText = `Player Score: ${playerScore}`;
     computerScoreEl.innerText = `Dealer Score: ${computerScore}`;
     winMessageEl.innerHTML = `<h2>${winMsg}</h1>`;
+    betInfoEl.innerText = `Current bet: ${currentBet}    Funds: ${currentFunds}`;
     while (playerHandEl.firstChild) {
         playerHandEl.removeChild(playerHandEl.firstChild)
     }
@@ -220,11 +228,18 @@ function determineWinner() {
     gameStarted = false;
 }
 
+// Function to set up betting with the play button
+function setupBets() {
+    playButtonText = 'Play Again';
+    winMsg = '';
+    currentBet = 0;
+    currentFunds = 500;
+    render();
+}
+
 // Begin Game function
 // Sets up player hands and game basics
 function beginGame() {
-    playButtonText = 'Play Again';
-    winMsg = '';
     playerHand = [];
     computerHand = [];
     usedCards = [];
@@ -294,7 +309,17 @@ function determineBlackjack() {
 init();
 
 // Event listeners for buttons
-playButtonEl.addEventListener('click',beginGame);
+playButtonEl.addEventListener('click',setupBets);
+betButtonEl.addEventListener('click', function() {
+    if (currentBet > 0) {
+        winMsg = '';
+        beginGame();
+    }
+    else {
+        winMsg = `You haven't bet!  If you're out of funds, press 'Play Again'!`
+        render();
+    }
+});
 
 document.getElementById('hit-btn').addEventListener('click', hitCard);
 
