@@ -218,13 +218,9 @@ function beginGame() {
     render();
 }
 
-
-// Initializing the game when the webpage loads
-init();
-
-// Event listeners for buttons
-playButtonEl.addEventListener( 'click', beginGame );
-document.getElementById('hit-btn').addEventListener('click', function () {
+// Function for Hit button
+// Draws cards until the player loses or stops pressing the button
+function hitCard() {
     if (gameStarted) {
         drawCard(playerHand, true);
         calculateScores();
@@ -233,5 +229,14 @@ document.getElementById('hit-btn').addEventListener('click', function () {
         }
         render();
     }
-});
+}
 
+// Initializing the game when the webpage loads
+init();
+
+// Event listeners for buttons
+playButtonEl.addEventListener( 'click', beginGame );
+
+document.getElementById('hit-btn').addEventListener('click', hitCard);
+
+document.getElementById('stand-btn').addEventListener('click', pressStand);
