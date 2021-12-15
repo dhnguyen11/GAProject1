@@ -246,7 +246,7 @@ function hitCard() {
         drawCard(playerHand, true);
         calculateScores();
         if (playerScore > 21) {
-            determineWinner();
+            playComputer();
         }
         render();
     }
@@ -256,17 +256,22 @@ function hitCard() {
 // Computes the computer's hand
 function playComputer() {
     if (gameStarted) {
-        computerHand.forEach( (card) => {
+        setTimeout( function() {
+            computerHand.forEach( (card) => {
             card.turnFaceup();
-        });
-        calculateScores();
-        while (computerScore < 17) {
-            drawCard(computerHand, true);
+            });
             calculateScores();
             render();
-        }
-        determineWinner();
-        render();
+            while (computerScore < 17) {   
+                drawCard(computerHand, true);
+                calculateScores();
+                render();
+            }
+            setTimeout(function () {
+                determineWinner();
+                render();
+            }, delayInMilliseconds);
+        }, delayInMilliseconds);
     }
 }
 
@@ -292,6 +297,4 @@ document.getElementById('hit-btn').addEventListener('click', function() {
     setTimeout(hitCard, [delayInMilliseconds]);
 });
 
-document.getElementById('stand-btn').addEventListener('click', function() {
-    setTimeout(playComputer, [delayInMilliseconds]);
-});
+document.getElementById('stand-btn').addEventListener('click', playComputer);
