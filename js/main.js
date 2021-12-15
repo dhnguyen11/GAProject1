@@ -256,22 +256,18 @@ function hitCard() {
 // Computes the computer's hand
 function playComputer() {
     if (gameStarted) {
-        setTimeout( function() {
-            computerHand.forEach( (card) => {
-            card.turnFaceup();
-            });
+        computerHand.forEach( (card) => {
+        card.turnFaceup();
+        });
+        calculateScores();
+        render();
+        while (computerScore < 17) {   
+            drawCard(computerHand, true);
             calculateScores();
             render();
-            while (computerScore < 17) {   
-                drawCard(computerHand, true);
-                calculateScores();
-                render();
-            }
-            setTimeout(function () {
-                determineWinner();
-                render();
-            }, delayInMilliseconds);
-        }, delayInMilliseconds);
+        }
+        determineWinner();
+        render();
     }
 }
 
@@ -289,12 +285,8 @@ function determineBlackjack() {
 init();
 
 // Event listeners for buttons
-playButtonEl.addEventListener( 'click', function() {
-    setTimeout(beginGame, [delayInMilliseconds]);
-});
+playButtonEl.addEventListener('click', beginGame);
 
-document.getElementById('hit-btn').addEventListener('click', function() {
-    setTimeout(hitCard, [delayInMilliseconds]);
-});
+document.getElementById('hit-btn').addEventListener('click', hitCard);
 
 document.getElementById('stand-btn').addEventListener('click', playComputer);
