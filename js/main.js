@@ -281,6 +281,7 @@ function hitCard() {
             computerHand.forEach( (card) => {
                 card.turnFaceup();
             });
+            calculateScores();
             determineWinner();
         }
         render();
