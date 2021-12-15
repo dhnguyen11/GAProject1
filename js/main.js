@@ -199,10 +199,16 @@ function determineWinner() {
 // Begin Game function
 // Sets up player hands and game basics
 function beginGame() {
-    console.log('beginning game');
-    console.log('multi-use test');
     playButtonText = 'Play Again';
     winMsg = '';
+    playerHand = [];
+    computerHand = [];
+    usedCards = [];
+    drawCard(playerHand, true);
+    drawCard(playerHand, true);
+    drawCard(computerHand, false);
+    drawCard(computerHand, true);
+    calculateScores();
     render();
 }
 
