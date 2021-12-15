@@ -46,6 +46,9 @@ let winMsg;
 // Defining the text for the play button
 let playButtonText;
 
+// Variable to determine if game is started
+let gameStarted;
+
 // Caching variables
 // These caches will be used to run the render function, as well as other functions
 const playerHandEl = document.getElementById('player-hand');
@@ -66,6 +69,7 @@ function init() {
     playerHand = [];
     computerHand = [];
     usedCards = [];
+    gameStarted = false;
     playButtonText = 'Play';
     winMsg = `Welcome to Blackjack! Press the 'Play' button to begin a game!`
     render();
@@ -194,6 +198,7 @@ function determineWinner() {
     else {
         winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins!`;
     }
+    gameStarted = false;
 }
 
 // Begin Game function
@@ -204,6 +209,7 @@ function beginGame() {
     playerHand = [];
     computerHand = [];
     usedCards = [];
+    gameStarted = true;
     drawCard(playerHand, true);
     drawCard(playerHand, true);
     drawCard(computerHand, false);
@@ -218,4 +224,14 @@ init();
 
 // Event listeners for buttons
 playButtonEl.addEventListener( 'click', beginGame );
+document.getElementById('hit-btn').addEventListener('click', function () {
+    if (gameStarted) {
+        drawCard(playerHand, true);
+        calculateScores();
+        if (playerScore > 21) {
+            determineWinner();
+        }
+        render();
+    }
+});
 
