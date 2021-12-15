@@ -92,7 +92,7 @@ function init() {
     playerBlackjack = false;
     computerBlackjack = false;
     playButtonText = 'Start';
-    winMsg = `Welcome to Blackjack! Press the 'Start' button to begin, then use the buttons below to place a bet and deal cards!`
+    winMsg = `Welcome to Blackjack! <br>Press the 'Start' button to begin, then use the buttons below to place a bet and deal cards!`
     render();
 }
 
@@ -207,35 +207,35 @@ function drawCard(hand, facing) {
 // May later be separated into different 'determine winner' functions
 function determineWinner() {
     if (computerBlackjack && playerBlackjack) {
-        winMsg = `Both players have blackjack.  Tie!`
+        winMsg = `Both players have blackjack.  Tie! <br> Use the bet buttons to play again.`
         tiePayout();
     }
     else if (computerBlackjack) {
-        winMsg = `The dealer has blackjack.  The dealer wins!`
+        winMsg = `The dealer has blackjack.  The dealer wins! <br> Use the bet buttons to play again.`
         lossPayout();
     }
     else if (playerBlackjack) {
-        winMsg = `You have blackjack.  You win!`
+        winMsg = `You have blackjack.  You win! <br> Use the bet buttons to play again.`
         blackjackPayout();
     }
     else if (playerScore > 21) {
-        winMsg = `You have busted.  The dealer wins!`;
+        winMsg = `You have busted.  The dealer wins! <br> Use the bet buttons to play again.`;
         lossPayout();
     }
     else if (computerScore > 21) {
-        winMsg = `The dealer has busted.  You win!`;
+        winMsg = `The dealer has busted.  You win! <br> Use the bet buttons to play again.`;
         winPayout();
     }
     else if (playerScore === computerScore) {
-        winMsg = `Both players have ${playerScore}.  Tie!`;
+        winMsg = `Both players have ${playerScore}.  Tie! <br> Use the bet buttons to play again.`;
         tiePayout();
     }
     else if (playerScore > computerScore) {
-        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  You win!`;
+        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  You win! <br> Use the bet buttons to play again.`;
         winPayout();
     }
     else {
-        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins!`;
+        winMsg = `You have ${playerScore}, the dealer has ${computerScore}.  The dealer wins! <br> Use the bet buttons to play again.`;
         lossPayout();
     }
     gameStarted = false;
