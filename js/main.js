@@ -285,8 +285,14 @@ function determineBlackjack() {
 init();
 
 // Event listeners for buttons
-playButtonEl.addEventListener('click', beginGame);
+playButtonEl.addEventListener('click', function () {
+    setTimeout(beginGame, delayInMilliseconds);
+});
 
-document.getElementById('hit-btn').addEventListener('click', hitCard);
+document.getElementById('hit-btn').addEventListener('click', function() {
+    setTimeout(hitCard, delayInMilliseconds)
+});
 
-document.getElementById('stand-btn').addEventListener('click', playComputer);
+document.getElementById('stand-btn').addEventListener('click', function() {
+    setInterval(playComputer, delayInMilliseconds)
+});
