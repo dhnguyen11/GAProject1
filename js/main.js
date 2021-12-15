@@ -49,6 +49,10 @@ let playButtonText;
 // Variable to determine if game is started
 let gameStarted;
 
+// Variable to determine if a player has Blackjack
+let playerBlackjack;
+let computerBlackjack;
+
 // Caching variables
 // These caches will be used to run the render function, as well as other functions
 const playerHandEl = document.getElementById('player-hand');
@@ -70,6 +74,8 @@ function init() {
     computerHand = [];
     usedCards = [];
     gameStarted = false;
+    playerBlackjack = false;
+    computerBlackjack = false;
     playButtonText = 'Play';
     winMsg = `Welcome to Blackjack! Press the 'Play' button to begin a game!`
     render();
@@ -155,6 +161,7 @@ function calculateScores() {
     }
     playerScore = playerTotal;
     computerScore = computerTotal;
+    determineBlackjack();
 }
 
 // Function to add a card to the hand
@@ -246,6 +253,16 @@ function playComputer() {
         }
         determineWinner();
         render();
+    }
+}
+
+// Function to determine blackjack
+function determineBlackjack() {
+    if (playerHand.length === 2 && playerScore === 21) {
+        playerBlackjack = true;
+    }
+    if (computerHand.length === 2 && computerScore === 21) {
+        computerBlackjack = true;
     }
 }
 
