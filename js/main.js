@@ -246,7 +246,10 @@ function hitCard() {
         drawCard(playerHand, true);
         calculateScores();
         if (playerScore > 21) {
-            playComputer();
+            computerHand.forEach( (card) => {
+                card.turnFaceup();
+            });
+            determineWinner();
         }
         render();
     }
@@ -285,14 +288,8 @@ function determineBlackjack() {
 init();
 
 // Event listeners for buttons
-playButtonEl.addEventListener('click', function () {
-    setTimeout(beginGame, delayInMilliseconds);
-});
+playButtonEl.addEventListener('click',beginGame);
 
-document.getElementById('hit-btn').addEventListener('click', function() {
-    setTimeout(hitCard, delayInMilliseconds)
-});
+document.getElementById('hit-btn').addEventListener('click', hitCard);
 
-document.getElementById('stand-btn').addEventListener('click', function() {
-    setInterval(playComputer, delayInMilliseconds)
-});
+document.getElementById('stand-btn').addEventListener('click', playComputer);
