@@ -75,6 +75,7 @@ const fiveBtnEl = document.getElementById('5');
 const tenBtnEl = document.getElementById('10');
 const twentyfiveBtnEl = document.getElementById('25');
 const fiftyBtnEl = document.getElementById('50');
+const allInBtnEl = document.getElementById('all-in');
 const clearBtnEl = document.getElementById('clear-bet');
 
 // Init function
@@ -363,6 +364,10 @@ betButtonEl.addEventListener('click', function() {
 });
 fiveBtnEl.addEventListener('click', function() {
     if (!betting) {}
+    else if (currentFunds === 0) {
+        winMsg = `Out of funds! <br> Press 'Reset' to try again!`
+        render();
+    }
     else if (currentFunds < 5) {
         winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
@@ -376,6 +381,10 @@ fiveBtnEl.addEventListener('click', function() {
 });
 tenBtnEl.addEventListener('click', function() {
     if (!betting) {}
+    else if (currentFunds === 0) {
+        winMsg = `Out of funds! <br> Press 'Reset' to try again!`
+        render();
+    }
     else if (currentFunds < 10) {
         winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
@@ -389,6 +398,10 @@ tenBtnEl.addEventListener('click', function() {
 });
 twentyfiveBtnEl.addEventListener('click', function() {
     if (!betting) {}
+    else if (currentFunds === 0) {
+        winMsg = `Out of funds! <br> Press 'Reset' to try again!`
+        render();
+    }
     else if (currentFunds < 25) {
         winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
@@ -402,6 +415,10 @@ twentyfiveBtnEl.addEventListener('click', function() {
 });
 fiftyBtnEl.addEventListener('click', function() {
     if (!betting) {}
+    else if (currentFunds === 0) {
+        winMsg = `Out of funds! <br> Press 'Reset' to try again!`
+        render();
+    }
     else if (currentFunds < 50) {
         winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
@@ -410,6 +427,19 @@ fiftyBtnEl.addEventListener('click', function() {
         winMsg = '';
         currentFunds -= 50;
         currentBet += 50;
+        render();
+    }
+});
+allInBtnEl.addEventListener('click', function() {
+    if (!betting) {}
+    else if (currentFunds === 0) {
+        winMsg = `Out of funds! <br> Press 'Reset' to try again!`
+        render();
+    }
+    else {
+        winMsg = '';
+        currentBet = currentFunds;
+        currentFunds = 0;
         render();
     }
 });
