@@ -16,7 +16,7 @@ Game built with JavaScript, HTML, and CSS using the VSCode Editor and GitHub.
 
 
 GETTING STARTED  
-Link to game:  
+Link to game: https://dhnguyen11.github.io/GAProject1/  
 To begin, press the 'Start' button on the left.  
 Use the betting buttons on the bottom to place a bet and deal a hand.  
 Then use the 'Hit' button to draw cards.  
