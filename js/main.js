@@ -438,7 +438,7 @@ allInBtnEl.addEventListener('click', function() {
     }
     else {
         winMsg = '';
-        currentBet = currentFunds;
+        currentBet += currentFunds;
         currentFunds = 0;
         render();
     }
