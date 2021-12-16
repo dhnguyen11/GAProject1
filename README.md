@@ -6,7 +6,9 @@ Face cards are worth a score of 10, and Aces can be worth 1 or 11.
 
 
 SCREENSHOTS
-![]
+![Home Screen](https://github.com/dhnguyen11/GAProject1/blob/main/screenshots/blackjack-home-screen.png?raw=true)
+![Gameplay](https://github.com/dhnguyen11/GAProject1/blob/main/screenshots/blackjack-gameplay.png?raw=true)
+![Win Screen](https://github.com/dhnguyen11/GAProject1/blob/main/screenshots/blackjack-win.png?raw=true)
 
 
 TECHNOLOGIES USED
