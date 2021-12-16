@@ -445,7 +445,7 @@ allInBtnEl.addEventListener('click', function() {
 });
 clearBtnEl.addEventListener('click', function() {
     if(betting) {
-        winMsg = '';
+        winMsg = ' ';
         currentFunds += currentBet;
         currentBet = 0;
         render();
