@@ -11,12 +11,12 @@ SCREENSHOTS
 ![Win Screen](https://github.com/dhnguyen11/GAProject1/blob/main/screenshots/blackjack-win.png?raw=true)
 
 
-TECHNOLOGIES USED
+TECHNOLOGIES USED  
 Game built with JavaScript, HTML, and CSS using the VSCode Editor and GitHub.
 
 
-GETTING STARTED
+GETTING STARTED  
 
 
-NEXT STEPS: 
+NEXT STEPS:  
 Adding casino gameplay variants, such as doubling down, splitting, and dealer hitting on soft 17.
