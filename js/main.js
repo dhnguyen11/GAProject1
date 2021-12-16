@@ -357,14 +357,14 @@ betButtonEl.addEventListener('click', function() {
         beginGame();
     }
     else {
-        winMsg = `You haven't bet!  If you're out of funds, press 'Reset'!`
+        winMsg = `You haven't bet! <br> If you're out of funds, press 'Reset'!`
         render();
     }
 });
 fiveBtnEl.addEventListener('click', function() {
     if (!betting) {}
     else if (currentFunds < 5) {
-        winMsg = `Not enough funds for that bet! If you're out of funds, press 'Reset'!`
+        winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
     }
     else {
@@ -377,7 +377,7 @@ fiveBtnEl.addEventListener('click', function() {
 tenBtnEl.addEventListener('click', function() {
     if (!betting) {}
     else if (currentFunds < 10) {
-        winMsg = `Not enough funds for that bet! If you're out of funds, press 'Reset'!`
+        winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
     }
     else {
@@ -390,7 +390,7 @@ tenBtnEl.addEventListener('click', function() {
 twentyfiveBtnEl.addEventListener('click', function() {
     if (!betting) {}
     else if (currentFunds < 25) {
-        winMsg = `Not enough funds for that bet! If you're out of funds, press 'Reset'!`
+        winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
     }
     else {
@@ -403,7 +403,7 @@ twentyfiveBtnEl.addEventListener('click', function() {
 fiftyBtnEl.addEventListener('click', function() {
     if (!betting) {}
     else if (currentFunds < 50) {
-        winMsg = `Not enough funds for that bet!`
+        winMsg = `Not enough funds for that bet! <br> If you're out of funds, press 'Reset'!`
         render();
     }
     else {
